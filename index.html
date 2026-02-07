@@ -7,151 +7,107 @@
   <style>
     *{box-sizing:border-box}
     body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;margin:0;padding:0;color:#2c3e50;background-color:#f5f6fa}
-    .wrap{max-width:900px;margin:30px auto;padding:0 20px}
-    .header{background:#fff;padding:32px;display:flex;gap:28px;align-items:flex-start;border-radius:4px 4px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin-bottom:0;border-bottom:1px solid #eef2f8}
-    .avatar{width:160px;height:160px;flex:0 0 160px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:48px;background:#ecf0f5;border-radius:4px;margin-left:auto}
-    .header-content h1{margin:0 0 4px 0;font-size:28px;font-weight:700;color:#1a2332}
-    .designation{font-size:16px;font-weight:600;color:#1873cc;margin:0 0 2px 0}
-    .department{font-size:14px;color:#555;margin:2px 0}
-    .header-email{font-size:14px;margin-top:12px}
+    .wrap{max-width:860px;margin:24px auto;padding:0 16px}
+    .card{background:#fff;padding:24px;border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+    .header{display:flex;gap:24px;align-items:flex-start;margin-bottom:16px}
+    .avatar{width:140px;height:140px;flex:0 0 140px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:44px;background:#ecf0f5;border-radius:4px;margin-left:auto}
+    .header-content h1{margin:0 0 3px 0;font-size:26px;font-weight:700;color:#1a2332}
+    .department{font-size:13px;color:#555;margin:2px 0}
+    .header-email{font-size:13px;margin-top:8px}
     .header-email a{color:#1873cc;text-decoration:none;font-weight:500}
     .header-email a:hover{text-decoration:underline}
-    .card{background:#fff;padding:28px;display:flex;gap:24px;align-items:flex-start;border-radius:0 0 4px 4px;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin-top:0}
-    .card-avatar{width:90px;height:90px;flex:0 0 90px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:32px;background:#ecf0f5;border-radius:4px}
-    .meta h1{margin:0 0 6px 0;font-size:22px;font-weight:700;color:#1a2332}
-    .meta p{margin:6px 0;line-height:1.6;text-align:justify;text-justify:inter-word;font-size:14px;color:#555}
-    .meta p.spaced{margin-top:32px}
-    .links{margin-top:10px;display:flex;flex-wrap:wrap;gap:10px}
-    .links a{color:#1873cc;text-decoration:none;font-size:14px;font-weight:500}
-    .links a:hover{color:#125ba3;text-decoration:underline}
-    .contact{margin-top:10px;font-size:14px}
+    .bio p{margin:4px 0;line-height:1.55;text-align:justify;text-justify:inter-word;font-size:13.5px;color:#555}
+    .bio p.spaced{margin-top:20px}
+    .bio a{color:#1873cc;text-decoration:none;font-weight:500}
+    .bio a:hover{text-decoration:underline}
+    .contact{margin-top:8px;font-size:13px}
     .contact a{color:#1873cc;text-decoration:none;font-weight:500}
-    .contact a:hover{color:#125ba3;text-decoration:underline}
-    .section{margin-top:28px;background:#fff;padding:24px;border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
-    .section h2{font-size:18px;margin:0 0 16px 0;font-weight:700;color:#000;border-bottom:1px solid #ddd;padding-bottom:10px}
-    .education-item{padding:8px 0;border-bottom:1px solid #eef2f8}
-    .education-item:last-child{border-bottom:none}
-    .education-item h3{margin:0 0 1px 0;font-size:14px;font-weight:600;color:#1a2332}
-    .education-item .degree{font-weight:600;margin:1px 0;font-size:13px;color:#1873cc}
-    .education-item .date{font-size:13px;color:#777}
-    .education-item .advisor{font-size:13px;color:#777;margin-top:1px}
-    .research-item{padding:8px 0;border-bottom:1px solid #eef2f8}
-    .research-item:last-child{border-bottom:none}
-    .research-item h3{margin:0 0 1px 0;font-size:14px;font-weight:600;color:#1a2332}
-    .research-item .position{font-weight:600;margin:1px 0;font-size:13px;color:#1873cc}
-    .research-item .date{font-size:13px;color:#777}
-    .research-item ul{margin:6px 0 0 0;padding-left:18px;font-size:13px;color:#555}
-    .research-item li{margin:3px 0;line-height:1.4}
-    .award-item{padding:14px 0;border-bottom:1px solid #eef2f8}
-    .award-item:last-child{border-bottom:none}
-    .award-item .title{font-weight:600;margin:0 0 3px 0;font-size:14px;color:#1a2332}
-    .award-item .year{font-size:13px;color:#777;margin-bottom:2px}
-    .award-item .org{font-size:13px;color:#777}
-    .publication-item{padding:14px 0;border-bottom:1px solid #eef2f8}
-    .publication-item:last-child{border-bottom:none}
-    .publication-item .title{font-weight:400;margin:0 0 3px 0;font-size:14px;color:#1a2332}
-    .publication-item .venue-year{font-size:13px;color:#777}
-    .publication-item .doi{font-size:13px}
-    .publication-item .doi a{color:#1873cc;text-decoration:none;font-weight:500}
-    .publication-item .doi a:hover{color:#125ba3;text-decoration:underline}
-    .pub-inline .pub-sep{border:0;border-top:1px solid #ddd;margin:18px 0}
-    .pub-inline .pub-title{font-size:16px;margin:0 0 8px 0;font-weight:700;color:#000}
-    .pub-inline .publication-item{padding:8px 0;border-bottom:1px solid #eef2f8}
-    .pub-inline .publication-item:last-child{border-bottom:none}
-    .pub-list{list-style:disc;margin:8px 0 0 20px;padding:0;font-size:14px;color:#555;line-height:1.6}
-    .pub-list .publication-item{padding:6px 0;border-bottom:none}
-    .pub-list .publication-item .title{font-weight:400;margin:0;font-size:14px;color:#555}
-    .pub-inline .awards-title{font-size:16px;margin:18px 0 8px 0;font-weight:700;color:#000}
-    .awards-list{list-style:disc;margin:8px 0 0 20px;padding:0;font-size:14px;color:#555;line-height:1.6}
-    .awards-list li{padding:6px 0;margin:0}
-    @media (max-width:640px){.header{flex-direction:column;align-items:flex-start}.avatar{width:100px;height:100px;font-size:32px}.card{flex-direction:column;align-items:flex-start}.card-avatar{width:70px;height:70px;font-size:24px}.section{padding:16px}}
+    .contact a:hover{text-decoration:underline}
+    .links{display:flex;flex-wrap:wrap;gap:8px}
+    .sep{border:0;border-top:1px solid #e2e6ec;margin:16px 0}
+    .section-title{font-size:15px;margin:0 0 6px 0;font-weight:700;color:#1a2332}
+    .section-list{list-style:disc;margin:4px 0 0 18px;padding:0;font-size:13.5px;color:#555;line-height:1.55}
+    .section-list li{padding:3px 0}
+    .section-list .venue-year{color:#777}
+    .section-list .doi a{color:#1873cc;text-decoration:none;font-weight:500}
+    .section-list .doi a:hover{text-decoration:underline}
+    .section-para{font-size:13.5px;color:#555;line-height:1.55;margin:4px 0 0 0;text-align:justify;text-justify:inter-word}
+    .section-para a{color:#1873cc;text-decoration:none;font-weight:500}
+    .section-para a:hover{text-decoration:underline}
+    @media(max-width:640px){.header{flex-direction:column}.avatar{width:100px;height:100px;flex:0 0 100px;font-size:32px;margin-left:0}}
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="header">
-      <div class="header-content">
-        <h1>Santa Maria Shithil</h1>
-        <div class="department">Ph.D. Candidate</div>
-        <div class="department">Department of Computer Science</div>
-        <div class="department">Stony Brook University</div>
-        <div class="header-email">Email: <a href="mailto:sshithil@cs.stonybrook.edu">sshithil@cs.stonybrook.edu</a></div>
-      </div>
-      <div class="avatar" id="avatar">SM</div>
-    </div>
-
     <div class="card">
-      <div class="meta">
-        <p>I am currently a Ph.D. candidate in the Department of <a href="https://www.cs.stonybrook.edu/"> 
-
-        Computer Science </a> at <a href="https://www.stonybrook.edu/"> 
-        Stony Brook University (SBU) </a>, New York. Currently, I work with 
-          <a href="http://mpaxos.com/">Prof. Shuai Mu</a>,  
-          <a href="https://www3.cs.stonybrook.edu/~anshul/">Prof. Anshul Gandhi</a>, and 
-          <a href="https://www3.cs.stonybrook.edu/~ezk/"> Prof. Erez Zadok</a>. We are working
-        on desiging a hybrid consistency protocol that unify linearizability and 
-    causal consistency in a single system.</p>
-
-    <p> My research interest lies in designing efficient distributed systems while ensuring
-         correctness through formal verification techniques. I am also interested 
-         in computer networking research, particularly problems related to 
-         network performance, reliability, and their implications for distributed 
-         system design. </p>
-    
-         <p> Before joining SBU, I completed my M.Sc. (2022) and B.Sc. (2016) in 
-            Computer Science and Engineering at Bangladesh University of Engineering and 
-            Technology (BUET) and Jatiya Kabi Kazi Nazrul Islam University (JKKNIU), 
-            respectively.</p>
-
-        
-        <p class="spaced">Apart from reading system research papers :), I really love reading books — both fiction and 
-          non-fiction. Although work kept me away from books for a while, I have committed 
-          to reading regularly again—even on the busiest days. You can check my GoodReads 
-          profile to see what I read, what’s next on my list, and my reviews.</p>
-        <div class="contact">Email: <a href="mailto:sshithil@cs.stonybrook.edu">sshithil@cs.stonybrook.edu</a>&nbsp;&nbsp;
+      <!-- Header -->
+      <div class="header">
+        <div class="header-content">
+          <h1>Santa Maria Shithil</h1>
+          <div class="department">Ph.D. Candidate</div>
+          <div class="department">Department of Computer Science</div>
+          <div class="department">Stony Brook University</div>
+          <div class="header-email">Email: <a href="mailto:sshithil@cs.stonybrook.edu">sshithil@cs.stonybrook.edu</a>&nbsp;&nbsp;
         <a href="mailto:santa.shithil@gmail.com">santa.shithil@gmail.com</a></div>
-        <div class="contact links">Links: 
-          <a href="https://www.linkedin.com/in/santa-maria-shithil-7642b1a1/">LinkedIn</a>
-          <a href="https://scholar.google.com/citations?user=56tMPBIAAAAJ&hl=en">Google Scholar</a>
-          <a href="https://github.com/Santa-Maria-Shithil">GitHub</a>
-          <a href="https://www.goodreads.com/user/show/194594401-santa-maria">GoodReads</a>
         </div>
-
-        <div class="pub-inline">
-          <hr class="pub-sep" />
-          <div class="pub-title">Publications</div>
-          <ul class="pub-list">
-            <li class="publication-item">
-              <div class="title">"Performance Improvement of Redundant Requests in Distributed Systems", <strong>Santa Maria Shithil</strong>, Muhammad Abdullah Adnan, <span class="venue-year">NSysS, 2024</span> <span class="doi"><a href="https://dl.acm.org/doi/10.1145/3704522.3704543">[DOI]</a></span></div>
-            </li>
-            <li class="publication-item">
-              <div class="title">"A Prediction Based Replica Selection Strategy for Reducing Tail Latency in Geo-Distributed Systems," <strong>Santa Maria Shithil</strong>, Muhammad Abdullah Adnan, <span class="venue-year">IEEE Transactions on Cloud Computing, 2023</span> <span class="doi"><a href="https://doi.org/10.1109/TCC.2023.3244203">[DOI]</a></span></div>
-            </li>
-            <li class="publication-item">
-              <div class="title">"A Prediction Based Replica Selection Strategy for Reducing Tail Latency in Distributed Systems," <strong>Santa Maria Shithil</strong>, Muhammad Abdullah Adnan, <span class="venue-year">2020 IEEE 13th International Conference on Cloud Computing (CLOUD), 2020, pp. 522-526</span> <span class="doi"><a href="https://doi.org/10.1109/CLOUD49709.2020.00078">[DOI]</a></span></div>
-            </li>
-            <li class="publication-item">
-              <div class="title">"A Dynamic Data Placement Policy for Heterogeneous Hadoop Cluster," <strong>Santa Maria Shithil</strong>, Tushar Kanti Saha, Tanusree Sharma, <span class="venue-year">IEEE 2017 4th International Conference on Advances in Electrical Engineering (ICAEE), 2017</span> <span class="doi"><a href="https://doi.org/10.1109/ICAEE.2017.8255371">[DOI]</a></span></div>
-            </li>
-          </ul>
-          <hr class="pub-sep" />
-          <div class="awards-title">Awards</div>
-          <ul class="awards-list">
-            <li>ICT Fellowship (2018) — ICT Innovation Fund, ICT Division, Ministry of Posts, Telecommunications and Information Technology, People's Republic of Bangladesh</li>
-            <li>Graduate Gold Medal Award (2017) — Jatiya Kabi Kazi Nazrul Islam University, Mymensingh, Bangladesh</li>
-            <li>Prime Minister Gold Medal Award (2016) — People's Republic of Bangladesh</li>
-            <li>Kazi Sobbosachi Scholarship (2016) — Institute of Nazrul Studies, Jatiya Kabi Kazi Nazrul Islam University, Mymensingh, Bangladesh</li>
-          </ul>
-          <hr class="pub-sep" />
-          <div class="awards-title">Research Experience</div>
-          <ul class="awards-list">
-            <li><strong>Graduate Research Assistant</strong>, Stony Brook University (Aug 2022 – Jul 2023; Jan 2024 – Jul 2025) — Designed and implemented a leaderless hybrid consistency protocol in Go with formal TLA+ verification, achieving 2.5× lower latency for strong consistency vs. state-of-the-art.</li>
-            <li><strong>Research Fellow</strong>, ICT Division, Bangladesh (Oct 2018 – Sep 2019) — Designed and implemented a prediction-based replica selection strategy for geo-distributed systems, achieving up to 3x lower tail latency through Apache Cassandra 3.0 modifications.</li>
-          </ul>
-        </div>
+        <div class="avatar" id="avatar">SM</div>
       </div>
-    </div>
 
+      <!-- Bio -->
+      <div class="bio">
+        <p>I am currently a Ph.D. candidate in the Department of <a href="https://www.cs.stonybrook.edu/">Computer Science</a> at <a href="https://www.stonybrook.edu/">Stony Brook University (SBU)</a>, New York. Currently, I work with <a href="http://mpaxos.com/">Prof. Shuai Mu</a>, <a href="https://www3.cs.stonybrook.edu/~anshul/">Prof. Anshul Gandhi</a>, and <a href="https://www3.cs.stonybrook.edu/~ezk/">Prof. Erez Zadok</a>. We are working on desiging a hybrid consistency protocol that unify linearizability and causal consistency in a single system.</p>
+        <p>My research interest lies in designing efficient distributed systems while ensuring correctness through formal verification techniques. I am also interested in computer networking research, particularly problems related to network performance, reliability, and their implications for distributed system design.</p>
+        <p>Before joining SBU, I completed my M.Sc. (2022) and B.Sc. (2016) in Computer Science and Engineering at Bangladesh University of Engineering and Technology (BUET) and Jatiya Kabi Kazi Nazrul Islam University (JKKNIU), respectively.</p>
+        <p class="spaced">Apart from reading system research papers, I  really love reading books — both fiction and non-fiction. 
+          Although work kept me away from books for a while, I have committed to reading regularly again—even on the busiest days. 
+          You can check my GoodReads profile to see what I read, what’s next on my list, and my reviews.</p>
+      </div>
+
+      <!-- Contact & Links -->
+     
+      <div class="contact links">Links: 
+        <a href="https://www.linkedin.com/in/santa-maria-shithil-7642b1a1/">LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=56tMPBIAAAAJ&hl=en">Google Scholar</a>
+        <a href="https://github.com/Santa-Maria-Shithil">GitHub</a>
+        <a href="https://www.goodreads.com/user/show/194594401-santa-maria">GoodReads</a>
+        <a href="https://drive.google.com/file/d/1hmy5wzWDMZfmhOzSYI5lIYRPbXL1HPUu/view?usp=share_link">CV</a>
+      </div>
+
+      <!-- Publications -->
+      <hr class="sep" />
+      <div class="section-title">Publications</div>
+      <ul class="section-list">
+        <li>"Performance Improvement of Redundant Requests in Distributed Systems", <strong>Santa Maria Shithil</strong>, Muhammad Abdullah Adnan, <span class="venue-year">NSysS, 2024</span> <span class="doi"><a href="https://dl.acm.org/doi/10.1145/3704522.3704543">[DOI]</a></span></li>
+        <li>"A Prediction Based Replica Selection Strategy for Reducing Tail Latency in Geo-Distributed Systems," <strong>Santa Maria Shithil</strong>, Muhammad Abdullah Adnan, <span class="venue-year">IEEE Transactions on Cloud Computing, 2023</span> <span class="doi"><a href="https://doi.org/10.1109/TCC.2023.3244203">[DOI]</a></span></li>
+        <li>"A Prediction Based Replica Selection Strategy for Reducing Tail Latency in Distributed Systems," <strong>Santa Maria Shithil</strong>, Muhammad Abdullah Adnan, <span class="venue-year">2020 IEEE 13th International Conference on Cloud Computing (CLOUD), 2020, pp. 522-526</span> <span class="doi"><a href="https://doi.org/10.1109/CLOUD49709.2020.00078">[DOI]</a></span></li>
+        <li>"A Dynamic Data Placement Policy for Heterogeneous Hadoop Cluster," <strong>Santa Maria Shithil</strong>, Tushar Kanti Saha, Tanusree Sharma, <span class="venue-year">IEEE 2017 4th International Conference on Advances in Electrical Engineering (ICAEE), 2017</span> <span class="doi"><a href="https://doi.org/10.1109/ICAEE.2017.8255371">[DOI]</a></span></li>
+      </ul>
+
+      <!-- Awards -->
+      <hr class="sep" />
+      <div class="section-title">Awards</div>
+      <ul class="section-list">
+        <li>ICT Fellowship (2018) — ICT Innovation Fund, ICT Division, Ministry of Posts, Telecommunications and Information Technology, People's Republic of Bangladesh</li>
+        <li>Graduate Gold Medal Award (2017) — Jatiya Kabi Kazi Nazrul Islam University, Mymensingh, Bangladesh</li>
+        <li>Prime Minister Gold Medal Award (2016) — People's Republic of Bangladesh</li>
+        <li>Kazi Sobbosachi Scholarship (2016) — Institute of Nazrul Studies, Jatiya Kabi Kazi Nazrul Islam University, Mymensingh, Bangladesh</li>
+      </ul>
+
+      <!-- Research Experience -->
+      <hr class="sep" />
+      <div class="section-title">Research Experience</div>
+      <ul class="section-list">
+        <li>Graduate Research Assistant, Stony Brook University (Aug 2022 – Jul 2023; Jan 2024 – Jul 2025) — Designed and implemented a leaderless hybrid consistency protocol to reduce latency in geo-distributed system.</li>
+        <li>Research Fellow, ICT Division, Bangladesh (Oct 2018 – Sep 2019) — Designed and implemented a prediction-based replica selection strategy to reduce tail latency in geo-distributed system.</li>
+      </ul>
+
+      <!-- Teaching Experience -->
+      <hr class="sep" />
+      <div class="section-title">Teaching Experience</div>
+      <p class="section-para">I worked as a Teaching Assistant for <a href="http://mpaxos.com/teaching/db/25fa/">Database Systems</a> (Fall 2025) and <a href="https://www3.cs.stonybrook.edu/~rezaul/CSE548-F23.html">Analysis of Algorithms</a> (Fall 2023) at Stony Brook University. Before that, I taught at Stamford University Bangladesh (January 2020 – August 2022) and Victoria University of Bangladesh (February 2016 – September 2018). I mostly taught Programming Languages, Data Structures, and Computer Networks.</p>
+      <p class="section-para">I truly enjoy teaching and working with students. I met many wonderful students and built great 
+        relationships with them. One of my students named his daughter after me—Shithil! ❤️ That always makes me smile.</p>
+    </div>
   </div>
 
   <script>
@@ -167,8 +123,6 @@
         const parts = name.split(' ').filter(Boolean);
         const initials = (parts[0] ? parts[0][0] : '') + (parts[parts.length-1] ? parts[parts.length-1][0] : '');
         avatarEl.textContent = initials.toUpperCase();
-        const avatarEl2 = document.getElementById('avatar2');
-        if(avatarEl2) avatarEl2.textContent = initials.toUpperCase();
       }
     })();
   </script>
