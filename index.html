@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Santa Maria Shithil</title>
+  <style>
+    :root{--bg:#f7f7fb;--card:#ffffff;--accent:#2563eb;--muted:#6b7280}
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;background:var(--bg);color:#0f172a}
+    .wrap{max-width:880px;margin:40px auto;padding:24px}
+    .card{background:var(--card);border-radius:12px;padding:28px;display:flex;gap:20px;align-items:center;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+    .avatar{width:120px;height:120px;border-radius:999px;flex:0 0 120px;background:linear-gradient(135deg,#dbeafe,#c7f0ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:#083344;font-size:28px}
+    .meta h1{margin:0;font-size:22px}
+    .meta p{margin:8px 0;color:var(--muted);line-height:1.5}
+    .links{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+    .links a{background:transparent;border:1px solid #e6eef8;padding:8px 12px;border-radius:8px;color:var(--accent);text-decoration:none;font-weight:600}
+    .contact{margin-top:12px;color:var(--muted)}
+    @media (max-width:640px){.card{flex-direction:column;align-items:flex-start}.avatar{width:96px;height:96px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="avatar" id="avatar">SM</div>
+      <div class="meta">
+        <h1>Santa Maria Shithil</h1>
+        <p>I am Santa Maria Shithil, a third-year Ph.D. student in the Department of Computer 
+          Science at Stony Brook University, New York. Currently, I am working on 
+          Sustainability Aware Software Systems (SASSY) design project with Professor Shuai 
+          Mu. Specifically, my project goal is to reduce the energy consumption of the 
+          distributed systems. I am also co-advised by Professor Anshul Gandhi, and Erez 
+          Zadok. My research interests lie in the intersection of distributed systems, and 
+          computer networks, and I plan to do some works in these areas.</p>
+
+        <p>Apart from reading system research papers :), I really love reading books — both fiction and 
+          non-fiction. Although work kept me away from books for a while, I have committed 
+          to reading regularly again—even on the busiest days. You can check my GoodReads 
+          profile to see what I read, what’s next on my list, and my reviews.</p>
+        <div class="contact">Email: <a href="mailto:sshithil@cs.stonybrook.edu">sshithil@cs.stonybrook.edu</a>
+        <a href="mailto:santa.shithil@gmail.com">santa.shithil@gmail.com</a></div>
+        <div class="links">
+          <a href="#">LinkedIn</a>
+          <a href="#">Google Scholar</a>
+          <a href="#">GitHub</a>
+          <a href="#">GoodReads</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const name = 'Santa Maria Shithil';
+      const avatarEl = document.getElementById('avatar');
+      const imageUrl = '';
+      if(imageUrl){
+        const img = document.createElement('img');
+        img.src = imageUrl; img.alt = name; img.style.width='100%'; img.style.height='100%'; img.style.objectFit='cover'; img.style.borderRadius='999px';
+        avatarEl.textContent=''; avatarEl.appendChild(img);
+      } else {
+        const parts = name.split(' ').filter(Boolean);
+        const initials = (parts[0] ? parts[0][0] : '') + (parts[parts.length-1] ? parts[parts.length-1][0] : '');
+        avatarEl.textContent = initials.toUpperCase();
+      }
+    })();
+  </script>
+</body>
+</html>
