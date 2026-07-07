@@ -1,0 +1,42 @@
+name: Update books manifest
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'books/**.xml'
+  workflow_dispatch:
+
+jobs:
+  update-manifest:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate manifest.json
+        run: |
+          python3 - <<'EOF'
+          import json, glob, os
+
+          files = sorted(
+              os.path.basename(f)
+              for f in glob.glob('books/*.xml')
+              if os.path.basename(f) != 'template.xml'
+          )
+
+          with open('books/manifest.json', 'w') as fh:
+              json.dump(files, fh, indent=2)
+              fh.write('\n')
+
+          print("Manifest:", files)
+          EOF
+
+      - name: Commit manifest
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add books/manifest.json
+          git diff --cached --quiet || git commit -m "chore: update books manifest"
+          git push

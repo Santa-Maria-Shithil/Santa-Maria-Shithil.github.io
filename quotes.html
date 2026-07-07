@@ -25,6 +25,7 @@
     .quote-text{font-size:13.5px;color:#444;line-height:1.65;margin:0;font-style:italic}
     .quote-page{font-size:12px;color:#999;margin:4px 0 0 0}
     .quote-meta{font-size:12px;color:#bbb;margin:4px 0 0 0}
+    .empty-state{font-size:13.5px;color:#999;margin:16px 0}
   </style>
 </head>
 <body>
@@ -36,34 +37,104 @@
       <h1 class="page-title">Book Quotes</h1>
       <p class="page-subtitle">A collection of passages and quotes that stayed with me.</p>
 
-      <!-- ================================================================
-           HOW TO ADD A NEW BOOK
-           Copy the block between the dashes below and fill in the fields.
-           ================================================================
-
-      <hr class="sep" />
-      <div class="book-header">
-        <img class="book-cover" src="PATH/TO/COVER.jpg" alt="BOOK TITLE" />
-        <div class="book-meta">
-          <div class="book-title">BOOK TITLE HERE</div>
-          <div class="book-author">Author Name</div>
-        </div>
-      </div>
-
-      <div class="quote-block">
-        <p class="quote-text">Quote text goes here.</p>
-        <p class="quote-page">p. 00</p>
-        <p class="quote-meta">Added: Month DD, YYYY, HH:MM AM/PM</p>
-      </div>
-
-      NOTE: If you don't have a cover image, replace the <img> tag with:
-        <div class="book-cover-placeholder">No cover</div>
-
-      ================================================================ -->
-
-      <!-- Add your quotes below this line -->
+      <div id="books-container"></div>
 
     </div>
   </div>
+
+  <script>
+    (async function () {
+      const container = document.getElementById('books-container');
+
+      let manifest;
+      try {
+        const res = await fetch('books/manifest.json');
+        manifest = await res.json();
+      } catch (e) {
+        container.innerHTML = '<p class="empty-state">Could not load books.</p>';
+        return;
+      }
+
+      if (!manifest.length) {
+        container.innerHTML = '<p class="empty-state">No quotes added yet.</p>';
+        return;
+      }
+
+      for (let i = 0; i < manifest.length; i++) {
+        const filename = manifest[i];
+        let xml;
+        try {
+          const res = await fetch('books/' + filename);
+          const text = await res.text();
+          xml = new DOMParser().parseFromString(text, 'application/xml');
+        } catch (e) {
+          continue;
+        }
+
+        const get = (tag) => xml.querySelector(tag)?.textContent?.trim() || '';
+
+        const title  = get('title');
+        const author = get('author');
+        const cover  = get('cover');
+        const quotes = Array.from(xml.querySelectorAll('quote'));
+
+        const section = document.createElement('div');
+
+        if (i > 0) {
+          section.appendChild(Object.assign(document.createElement('hr'), { className: 'sep' }));
+        } else {
+          const spacer = document.createElement('hr');
+          spacer.className = 'sep';
+          section.appendChild(spacer);
+        }
+
+        // Book header
+        const header = document.createElement('div');
+        header.className = 'book-header';
+
+        if (cover) {
+          const img = document.createElement('img');
+          img.className = 'book-cover';
+          img.src = cover;
+          img.alt = title;
+          header.appendChild(img);
+        } else {
+          const placeholder = document.createElement('div');
+          placeholder.className = 'book-cover-placeholder';
+          placeholder.textContent = 'No cover';
+          header.appendChild(placeholder);
+        }
+
+        const meta = document.createElement('div');
+        meta.className = 'book-meta';
+        meta.innerHTML =
+          '<div class="book-title">' + escHtml(title) + '</div>' +
+          '<div class="book-author">' + escHtml(author) + '</div>';
+        header.appendChild(meta);
+        section.appendChild(header);
+
+        // Quotes
+        for (const q of quotes) {
+          const text  = q.querySelector('text')?.textContent?.trim()  || '';
+          const page  = q.querySelector('page')?.textContent?.trim()  || '';
+          const added = q.querySelector('added')?.textContent?.trim() || '';
+
+          const block = document.createElement('div');
+          block.className = 'quote-block';
+          block.innerHTML =
+            '<p class="quote-text">'  + escHtml(text)  + '</p>' +
+            (page  ? '<p class="quote-page">'  + escHtml('p. ' + page)     + '</p>' : '') +
+            (added ? '<p class="quote-meta">Added: ' + escHtml(added) + '</p>' : '');
+          section.appendChild(block);
+        }
+
+        container.appendChild(section);
+      }
+    })();
+
+    function escHtml(s) {
+      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+  </script>
 </body>
 </html>
