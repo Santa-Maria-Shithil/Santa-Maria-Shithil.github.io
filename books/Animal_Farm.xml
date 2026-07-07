@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book>
+  <title>Animal Farm</title>
+  <author>George Orwell</author>
+  <cover>books/Animal_Farm.pdf</cover>
+  <quotes>
+    <quote>
+      <text>All animals are equal, but some animals are more equal than others.</text>
+      <page></page>
+      <added></added>
+    </quote>
+   
+     
+    
+    
+  
+  </quotes>
+</book>
