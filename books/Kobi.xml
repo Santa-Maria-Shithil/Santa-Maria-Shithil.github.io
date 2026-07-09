@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book>
+  <title>কবি</title>
+  <author>তারাশঙ্কর বন্দ্যোপাধ্যায়</author>
+  <cover>books/Kobi.pdf</cover>
+  <quotes>
+    <quote>
+      <text>স্বর্ণবিন্দু শীর্ষ কাশফুল। 
+আঃ! ঠাকুরঝি, বসন - দুইজন যেন পাশাপাশি দাড়াইয় আছে। মিশিয়া একাকার হইয়া যাইতেছে।</text>
+      <page></page>
+      <added></added>
+    </quote>
+  </quotes>
+</book>
