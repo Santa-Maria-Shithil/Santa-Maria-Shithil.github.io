@@ -2,7 +2,7 @@
 <book>
   <title>The Old Man and the Sea</title>
   <author>Ernest Hemingway</author>
-  <cover>books/The_Old_Man_and_the_Sea</cover>
+  <cover>books/The_Old_Man_and_the_Sea.pdf</cover>
   <quotes>
     <quote>
       <text>Why do old men wake so early?
@@ -10,14 +10,13 @@
       <page></page>
       <added></added>
     </quote>
-    "If the others heard me talking out loud they
+    
+    <quote>
+      <text>"If the others heard me talking out loud they
     would think that I am crazy," he said loud. "But
     since I am not crazy, I do not care. And the 
     rich have radios to talk to them in their boats
-    and to bring them the baseball."
-    <quote>
-      <text>Why do old men wake so early?
-      Is it to have one longer day?</text>
+    and to bring them the baseball."</text>
       <page></page>
       <added></added>
     </quote>
