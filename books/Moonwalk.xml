@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book>
+  <title>Moonwalk</title>
+  <author>Michael Jackson</author>
+  <cover>books/Moonwalk.pdf</cover>
+  <quotes>
+    <quote>
+      <text>The greatest education in the world is watching the masters at work.You coudn't
+      teach a person what I've learned just standing and watching. Some musicians - Springsteen and U2,
+      for example - may feell they got their education from the streets. I'm a performer at heart.
+      I got mine from the stage.</text>
+      <page></page>
+      <added></added>
+    </quote>
+    
+    <quote>
+      <text>"If the others heard me talking out loud they
+    would think that I am crazy," he said loud. "But
+    since I am not crazy, I do not care. And the 
+    rich have radios to talk to them in their boats
+    and to bring them the baseball."</text>
+      <page></page>
+      <added></added>
+    </quote>
+     
+    
+    
+  
+  </quotes>
+</book>
